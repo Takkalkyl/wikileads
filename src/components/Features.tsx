@@ -1,5 +1,5 @@
 import React from "react";
-import { Star, Award, ShieldCheck } from "lucide-react";
+import { Building, Search, Clock, TrendingUp } from "lucide-react";
 
 const Features = () => {
   return (
@@ -7,36 +7,41 @@ const Features = () => {
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">
-            How it works?
+            Väx med oss
           </h2>
-          <p className="text-white/80">Our AI-powered platform simplifies tech recruitment</p>
+          <p className="text-white/80">Allt du behöver för att hitta nya kunder</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              icon: Star,
-              title: "Post Your Requirements",
-              description: "Specify your needs and let our AI match you with the perfect candidates",
+              icon: Building,
+              title: "Färska bygglovsansökningar",
+              description: "Få tillgång till nya bygglovsansökningar direkt från källan.",
             },
             {
-              icon: Award,
-              title: "Review Matches",
-              description: "Get a curated list of pre-screened candidates that match your criteria",
+              icon: Search,
+              title: "Smart matchning",
+              description: "Vi matchar ditt företag med relevanta projekt baserat på din expertis och region.",
             },
             {
-              icon: ShieldCheck,
-              title: "Hire the Best",
-              description: "Interview and hire top tech talent efficiently",
+              icon: Clock,
+              title: "Spara tid",
+              description: "Slipp leta efter nya kunder – vi levererar kvalificerade leads direkt till dig.",
+            },
+            {
+              icon: TrendingUp,
+              title: "Öka din försäljning",
+              description: "Expandera din verksamhet med verifierade leads från faktiska bygglovsprojekt.",
             },
           ].map((feature, index) => (
             <div 
               key={index} 
               className="bg-forest-light p-8 rounded-xl border border-mint/10"
             >
-              <div className="w-12 h-12 bg-mint rounded-full flex items-center justify-center mb-6">
-                {React.createElement(feature.icon, { className: "w-6 h-6 text-forest" })}
+              <div className="w-12 h-12 bg-mint/10 rounded-full flex items-center justify-center mb-6">
+                {React.createElement(feature.icon, { className: "w-6 h-6 text-mint" })}
               </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+              <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
               <p className="text-white/80">{feature.description}</p>
             </div>
           ))}

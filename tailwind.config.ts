@@ -24,10 +24,7 @@ export default {
           light: "#132B41", // Slightly lighter variant for cards/sections
         },
         mint: {
-          DEFAULT: "#64FFDA", // Primary accent color
-        },
-        divine: {
-          DEFAULT: "#FFD700", // Secondary accent color
+          DEFAULT: "#64FFDA", // Primary accent color for important elements
         }
       },
       fontFamily: {

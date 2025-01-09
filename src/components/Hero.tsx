@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -8,7 +9,7 @@ const Hero = () => {
         <div className="space-y-8">
           <div className="flex items-center gap-2 bg-mint/10 w-fit px-4 py-2 rounded-full border border-mint/20">
             <Building className="w-4 h-4 text-mint" />
-            <span className="text-mint text-sm font-medium">Bygglovsleads</span>
+            <span className="text-mint text-sm font-medium">Wikileads.se</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
             Bygg framtiden med kvalificerade bygglovsleads
@@ -17,12 +18,16 @@ const Hero = () => {
             Vi kopplar samman företag med nya möjligheter direkt från bygglovsansökningar.
           </p>
           <div className="flex items-center gap-4">
-            <Button className="bg-mint hover:bg-mint/90 text-forest font-medium px-8 py-6 text-lg">
-              Bli partner <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button variant="outline" className="border-mint/20 text-mint hover:bg-mint/10">
-              Kontakta oss
-            </Button>
+            <Link to="/bli-partner">
+              <Button className="bg-mint hover:bg-mint/90 text-forest font-medium px-8 py-6 text-lg">
+                Bli partner <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/kontakt">
+              <Button variant="outline" className="border-mint/20 text-mint hover:bg-mint/10">
+                Kontakta oss
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="relative">

@@ -7,9 +7,9 @@ const Features = () => {
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">
-            Väx med oss
+            Allt du behöver för att hitta nya kunder
           </h2>
-          <p className="text-white/80">Allt du behöver för att hitta nya kunder</p>
+          <p className="text-white/80">Vi hjälper dig växa din verksamhet</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[

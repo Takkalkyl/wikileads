@@ -17,14 +17,14 @@ const Hero = () => {
           <p className="text-lg text-white/80 max-w-md">
             Vi kopplar samman företag med nya möjligheter direkt från bygglovsansökningar.
           </p>
-          <div className="flex items-center gap-4">
-            <Link to="/bli-partner">
-              <Button className="bg-mint hover:bg-mint/90 text-forest font-medium px-8 py-6 text-lg">
-                Bli partner <ArrowRight className="ml-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <Link to="/bli-partner" className="group">
+              <Button className="w-full sm:w-auto bg-mint hover:bg-mint/90 text-forest font-medium px-8 py-6 text-lg transition-all duration-300 hover:scale-105">
+                Bli partner <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
-            <Link to="/kontakt">
-              <Button variant="outline" className="border-mint/20 text-mint hover:bg-mint/10">
+            <Link to="/kontakt" className="group">
+              <Button variant="outline" className="w-full sm:w-auto border-mint/20 text-mint hover:bg-mint/10 px-8 py-6 text-lg transition-all duration-300 hover:scale-105">
                 Kontakta oss
               </Button>
             </Link>

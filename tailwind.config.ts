@@ -20,11 +20,11 @@ export default {
     extend: {
       colors: {
         forest: {
-          DEFAULT: "#003366", // Updated to new dark blue
-          light: "#004480", // Slightly lighter variant for cards/sections
+          DEFAULT: "#0A1F2F", // Main background color
+          light: "#132B41", // Slightly lighter variant for cards/sections
         },
         mint: {
-          DEFAULT: "#2ECC71", // Updated to new green accent
+          DEFAULT: "#64FFDA", // Primary accent color for important elements
         }
       },
       fontFamily: {

@@ -8,6 +8,10 @@ import BliPartner from "./pages/BliPartner";
 import Kontakt from "./pages/Kontakt";
 import OmOss from "./pages/OmOss";
 import Tjanster from "./pages/Tjanster";
+import Priser from "./pages/Priser";
+import FAQ from "./pages/FAQ";
+import Integritetspolicy from "./pages/Integritetspolicy";
+import Villkor from "./pages/Villkor";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +27,10 @@ const App = () => (
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/om-oss" element={<OmOss />} />
           <Route path="/tjanster" element={<Tjanster />} />
+          <Route path="/priser" element={<Priser />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/integritetspolicy" element={<Integritetspolicy />} />
+          <Route path="/villkor" element={<Villkor />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

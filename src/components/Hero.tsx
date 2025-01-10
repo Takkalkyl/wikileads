@@ -12,10 +12,10 @@ const Hero = () => {
             <span className="text-mint text-sm font-medium">Wikileads.se</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
-            Din partner för kvalificerade bygglovsleads
+            Få tillgång till verifierade bygglovsleads
           </h1>
           <p className="text-lg text-white/80 max-w-md">
-            Vi kopplar bygglovsbyråer med nya projekt genom att leverera verifierade bygglovsleads.
+            Vi kopplar byggföretag med kvalificerade projekt direkt från bygglovsansökningar.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link to="/bli-partner" className="group">

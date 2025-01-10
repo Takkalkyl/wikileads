@@ -22,9 +22,11 @@ const Navbar = () => {
             Kontakta oss
           </Link>
         </div>
-        <Button className="bg-mint hover:bg-mint/90 text-forest font-medium">
-          Bli partner
-        </Button>
+        <Link to="/bli-partner">
+          <Button className="bg-mint hover:bg-mint/90 text-forest font-medium">
+            Bli partner
+          </Button>
+        </Link>
       </div>
     </nav>
   );

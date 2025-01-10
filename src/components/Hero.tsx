@@ -12,20 +12,20 @@ const Hero = () => {
             <span className="text-mint text-sm font-medium">Wikileads.se</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
-            Byggprojekt? Vi kopplar rätt entreprenörer med rätt kunder.
+            Kvalificerade leads från bygglovsansökningar
           </h1>
           <p className="text-lg text-white/80 max-w-md">
-            Wikileads.se hjälper bygglovsföretag att ge sina kunder tillgång till rätt entreprenörer, samtidigt som vi skapar nya affärsmöjligheter för entreprenörer.
+            Vi kopplar samman byggföretag med nya möjligheter genom verifierade bygglovsleads.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link to="/bli-partner" className="group">
               <Button className="w-full sm:w-auto bg-mint hover:bg-mint/90 text-forest font-medium px-8 py-6 text-lg transition-all duration-300 hover:scale-105">
-                Bygglovsföretag – samarbeta med oss <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                Bli partner <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
             <Link to="/kontakt" className="group">
               <Button variant="outline" className="w-full sm:w-auto border-mint/20 text-mint hover:bg-mint/10 px-8 py-6 text-lg transition-all duration-300 hover:scale-105">
-                Entreprenör? Köp verifierade leads
+                Kontakta oss
               </Button>
             </Link>
           </div>

@@ -7,7 +7,7 @@ const Features = () => {
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">
-            Allt du behöver för att hitta nya kunder
+            Varför välja Wikileads.se?
           </h2>
           <p className="text-white/80">Vi hjälper dig växa din verksamhet</p>
         </div>
@@ -15,28 +15,28 @@ const Features = () => {
           {[
             {
               icon: Building,
-              title: "Färska bygglovsansökningar",
-              description: "Få tillgång till nya bygglovsansökningar direkt från källan.",
+              title: "Färska leads",
+              description: "Direkt från kommunens bygglovsansökningar.",
             },
             {
               icon: Search,
-              title: "Smart matchning",
-              description: "Vi matchar ditt företag med relevanta projekt baserat på din expertis och region.",
+              title: "Enkel matchning",
+              description: "Vi matchar rätt företag med rätt projekt.",
             },
             {
               icon: Clock,
               title: "Spara tid",
-              description: "Slipp leta efter nya kunder – vi levererar kvalificerade leads direkt till dig.",
+              description: "Inget behov av egen research – vi gör jobbet åt dig.",
             },
             {
               icon: TrendingUp,
-              title: "Öka din försäljning",
-              description: "Expandera din verksamhet med verifierade leads från faktiska bygglovsprojekt.",
+              title: "Skalbarhet",
+              description: "Väx ditt företag med kvalificerade byggprojekt.",
             },
           ].map((feature, index) => (
             <div 
               key={index} 
-              className="bg-forest-light p-8 rounded-xl border border-mint/10"
+              className="bg-forest-light p-8 rounded-xl border border-mint/10 hover:border-mint/30 transition-colors duration-300"
             >
               <div className="w-12 h-12 bg-mint/10 rounded-full flex items-center justify-center mb-6">
                 {React.createElement(feature.icon, { className: "w-6 h-6 text-mint" })}

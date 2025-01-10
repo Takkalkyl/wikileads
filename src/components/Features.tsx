@@ -7,7 +7,7 @@ const Features = () => {
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">
-            Varför välja Wikileads.se?
+            Varför Wikileads.se?
           </h2>
           <p className="text-white/80">Vi hjälper dig växa din verksamhet</p>
         </div>
@@ -15,23 +15,23 @@ const Features = () => {
           {[
             {
               icon: Building,
-              title: "Färska leads",
-              description: "Direkt från kommunens bygglovsansökningar.",
+              title: "Färska bygglovsleads",
+              description: "Leads från aktuella bygglovsprojekt i din region.",
             },
             {
               icon: Search,
-              title: "Enkel matchning",
-              description: "Vi matchar rätt företag med rätt projekt.",
+              title: "Smart matchning",
+              description: "Vi ser till att rätt projekt hamnar hos rätt byrå.",
             },
             {
               icon: Clock,
               title: "Spara tid",
-              description: "Inget behov av egen research – vi gör jobbet åt dig.",
+              description: "Slipp leta efter nya kunder – vi levererar direkt.",
             },
             {
               icon: TrendingUp,
-              title: "Skalbarhet",
-              description: "Väx ditt företag med kvalificerade byggprojekt.",
+              title: "Öka din försäljning",
+              description: "Skapa fler affärer med kvalificerade projekt.",
             },
           ].map((feature, index) => (
             <div 

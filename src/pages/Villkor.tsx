@@ -1,17 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail } from "lucide-react";
 
 const Villkor = () => {
-  const handleAccept = () => {
-    toast({
-      title: "Villkor accepterade",
-      description: "Tack för att du accepterar våra användarvillkor.",
-    });
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -34,13 +25,6 @@ const Villkor = () => {
                 info@wikileads.se
               </a>
             </p>
-
-            <Button 
-              onClick={handleAccept}
-              className="w-full bg-mint hover:bg-mint/90 text-forest font-medium"
-            >
-              Godkänn och fortsätt
-            </Button>
           </div>
         </div>
       </main>

@@ -48,7 +48,12 @@ const Kontakt = () => {
             </a>
           </div>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-6"
+              data-netlify="true" // Lägg till denna attribut
+              name="contact" // Lägg till ett namn för att identifiera formuläret på Netlify
+            >
               <FormField
                 control={form.control}
                 name="name"

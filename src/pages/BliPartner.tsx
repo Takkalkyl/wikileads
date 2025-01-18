@@ -48,7 +48,12 @@ const BliPartner = () => {
             Fyll i formuläret nedan för att ansöka om partnerskap med Wikileads.se
           </p>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-6"
+              data-netlify="true"  // Lägg till detta attribut för Netlify-formulär
+              name="partner-form"  // Lägg till ett namn för att identifiera formuläret på Netlify
+            >
               <FormField
                 control={form.control}
                 name="companyName"

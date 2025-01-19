@@ -33,13 +33,13 @@ const Kontakt = () => {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-6"
-            data-netlify="true" // Lägg till denna attribut
+            data-netlify="true" // Lägg till denna attribut för Netlify
             name="contact" // Lägg till ett namn för att identifiera formuläret på Netlify
-            method="POST"
-            action="/success" // Valfri success-sida
+            method="POST" // Detta specificerar att formuläret ska skickas med POST-metod
           >
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
+            {/* Hides this field to prevent bot submissions */}
+            <input type="hidden" name="form-name" value="contact" /> 
+            <input type="hidden" name="bot-field" /> {/* För att förhindra bots */}
 
             <div>
               <label className="text-white">Namn</label>

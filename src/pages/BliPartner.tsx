@@ -32,22 +32,23 @@ const BliPartner = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log("Form submitted:", values);
     
-    // Encode form data for Netlify
-    const formData = new FormData();
-    Object.keys(values).forEach(key => {
-      formData.append(key, values[key] || '');
-    });
-
     try {
-      // Submit to Netlify forms
+      const formData = new FormData();
+      formData.append("form-name", "partner-form");
+      Object.keys(values).forEach(key => {
+        formData.append(key, values[key] || '');
+      });
+
       const response = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString()
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData as any).toString(),
       });
 
       if (response.ok) {
-        console.log("Form successfully submitted to Netlify");
+        console.log("Form successfully submitted");
         toast({
           title: "Tack för din ansökan!",
           description: "Vi återkommer till dig inom kort.",
@@ -61,7 +62,7 @@ const BliPartner = () => {
       toast({
         title: "Ett fel uppstod",
         description: "Försök igen senare eller kontakta oss via telefon.",
-        variant: "destructive"
+        variant: "destructive",
       });
     }
   };
@@ -79,9 +80,9 @@ const BliPartner = () => {
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-6"
-              data-netlify="true"
               name="partner-form"
               method="POST"
+              data-netlify="true"
               netlify-honeypot="bot-field"
             >
               <input type="hidden" name="form-name" value="partner-form" />

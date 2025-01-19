@@ -53,7 +53,12 @@ const Kontakt = () => {
               className="space-y-6"
               data-netlify="true" // Lägg till denna attribut
               name="contact" // Lägg till ett namn för att identifiera formuläret på Netlify
+              method="POST" // Se till att formuläret skickas med rätt metod
+              action="/success" // Redirigera till en success-sida efter inlämning
             >
+              <input type="hidden" name="form-name" value="contact" /> {/* Form-name attribut */}
+              <input type="hidden" name="bot-field" /> {/* För att förhindra botar */}
+
               <FormField
                 control={form.control}
                 name="name"

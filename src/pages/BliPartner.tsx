@@ -9,7 +9,6 @@ import { toast } from "@/components/ui/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Define the schema for the form
 const formSchema = z.object({
   companyName: z.string().min(2, "Företagsnamn måste vara minst 2 tecken"),
   contactPerson: z.string().min(2, "Kontaktperson måste vara minst 2 tecken"),
@@ -19,7 +18,6 @@ const formSchema = z.object({
 });
 
 const BliPartner = () => {
-  // Set up the form using react-hook-form with validation schema
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,14 +29,37 @@ const BliPartner = () => {
     },
   });
 
-  // Handle form submission
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-    toast({
-      title: "Tack för din ansökan!",
-      description: "Vi återkommer till dig inom kort.",
+    console.log("Form submitted:", values);
+    
+    // Encode form data for Netlify
+    const formData = new FormData();
+    Object.keys(values).forEach(key => {
+      formData.append(key, values[key]);
     });
-    form.reset();
+
+    // Submit to Netlify forms
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString()
+    })
+    .then(() => {
+      console.log("Form successfully submitted to Netlify");
+      toast({
+        title: "Tack för din ansökan!",
+        description: "Vi återkommer till dig inom kort.",
+      });
+      form.reset();
+    })
+    .catch((error) => {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Ett fel uppstod",
+        description: "Försök igen senare eller kontakta oss via telefon.",
+        variant: "destructive"
+      });
+    });
   };
 
   return (
@@ -54,13 +75,17 @@ const BliPartner = () => {
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-6"
-              data-netlify="true" // Add Netlify form attributes
-              name="partner-form" // Name for Netlify identification
+              data-netlify="true"
+              name="partner-form"
               method="POST"
-              action="/success"
+              netlify-honeypot="bot-field"
             >
               <input type="hidden" name="form-name" value="partner-form" />
-              <input type="hidden" name="bot-field" />
+              <p className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
 
               <FormField
                 control={form.control}
@@ -69,7 +94,7 @@ const BliPartner = () => {
                   <FormItem>
                     <FormLabel className="text-white">Företagsnamn</FormLabel>
                     <FormControl>
-                      <Input placeholder="Ditt företags namn" {...field} className="bg-forest-light border-mint/20" />
+                      <Input placeholder="Ditt företags namn" {...field} className="bg-forest-light border-mint/20" name="companyName" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -82,7 +107,7 @@ const BliPartner = () => {
                   <FormItem>
                     <FormLabel className="text-white">Kontaktperson</FormLabel>
                     <FormControl>
-                      <Input placeholder="För- och efternamn" {...field} className="bg-forest-light border-mint/20" />
+                      <Input placeholder="För- och efternamn" {...field} className="bg-forest-light border-mint/20" name="contactPerson" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -95,7 +120,7 @@ const BliPartner = () => {
                   <FormItem>
                     <FormLabel className="text-white">E-post</FormLabel>
                     <FormControl>
-                      <Input placeholder="din@epost.se" {...field} className="bg-forest-light border-mint/20" />
+                      <Input placeholder="din@epost.se" {...field} className="bg-forest-light border-mint/20" name="email" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -108,7 +133,7 @@ const BliPartner = () => {
                   <FormItem>
                     <FormLabel className="text-white">Telefonnummer</FormLabel>
                     <FormControl>
-                      <Input placeholder="Ditt telefonnummer" {...field} className="bg-forest-light border-mint/20" />
+                      <Input placeholder="Ditt telefonnummer" {...field} className="bg-forest-light border-mint/20" name="phone" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -125,6 +150,7 @@ const BliPartner = () => {
                         placeholder="Skriv ditt meddelande här..."
                         {...field}
                         className="bg-forest-light border-mint/20 min-h-[100px]"
+                        name="message"
                       />
                     </FormControl>
                     <FormMessage />
@@ -143,5 +169,4 @@ const BliPartner = () => {
   );
 };
 
-// Export the component as default
 export default BliPartner;

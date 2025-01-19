@@ -16,12 +16,36 @@ const Kontakt = () => {
   });
 
   const onSubmit = (values) => {
-    console.log(values);
-    toast({
-      title: "Tack för ditt meddelande!",
-      description: "Vi återkommer till dig inom kort.",
+    console.log("Form submitted:", values);
+    
+    // Encode form data for Netlify
+    const formData = new FormData();
+    Object.keys(values).forEach(key => {
+      formData.append(key, values[key]);
     });
-    form.reset();
+
+    // Submit to Netlify forms
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString()
+    })
+    .then(() => {
+      console.log("Form successfully submitted to Netlify");
+      toast({
+        title: "Tack för ditt meddelande!",
+        description: "Vi återkommer till dig inom kort.",
+      });
+      form.reset();
+    })
+    .catch((error) => {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Ett fel uppstod",
+        description: "Försök igen senare eller kontakta oss via telefon.",
+        variant: "destructive"
+      });
+    });
   };
 
   return (
@@ -33,13 +57,17 @@ const Kontakt = () => {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-6"
-            data-netlify="true" // Lägg till denna attribut för Netlify
-            name="contact" // Lägg till ett namn för att identifiera formuläret på Netlify
-            method="POST" // Detta specificerar att formuläret ska skickas med POST-metod
+            data-netlify="true"
+            name="contact"
+            method="POST"
+            netlify-honeypot="bot-field"
           >
-            {/* Hides this field to prevent bot submissions */}
-            <input type="hidden" name="form-name" value="contact" /> 
-            <input type="hidden" name="bot-field" /> {/* För att förhindra bots */}
+            <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
 
             <div>
               <label className="text-white">Namn</label>
@@ -48,6 +76,7 @@ const Kontakt = () => {
                 placeholder="Ditt namn"
                 className="bg-forest-light border-mint/20"
                 required
+                name="name"
               />
             </div>
 
@@ -58,6 +87,8 @@ const Kontakt = () => {
                 placeholder="din@epost.se"
                 className="bg-forest-light border-mint/20"
                 required
+                type="email"
+                name="email"
               />
             </div>
 
@@ -68,6 +99,7 @@ const Kontakt = () => {
                 placeholder="Skriv ditt meddelande här..."
                 className="bg-forest-light border-mint/20 min-h-[150px]"
                 required
+                name="message"
               />
             </div>
 

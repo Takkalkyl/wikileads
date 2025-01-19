@@ -15,16 +15,16 @@ const Kontakt = () => {
     },
   });
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: any) => {
     console.log("Form submitted:", values);
     
-    // Encode form data for Netlify
-    const formData = new FormData();
-    Object.keys(values).forEach(key => {
-      formData.append(key, values[key]);
-    });
-
     try {
+      // Encode form data for Netlify
+      const formData = new FormData();
+      Object.keys(values).forEach(key => {
+        formData.append(key, values[key]);
+      });
+
       // Submit to Netlify forms
       const response = await fetch("/", {
         method: "POST",
@@ -53,7 +53,7 @@ const Kontakt = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-forest">
       <Navbar />
       <main className="flex-grow pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-2xl">

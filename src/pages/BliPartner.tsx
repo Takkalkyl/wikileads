@@ -29,37 +29,41 @@ const BliPartner = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log("Form submitted:", values);
     
     // Encode form data for Netlify
     const formData = new FormData();
     Object.keys(values).forEach(key => {
-      formData.append(key, values[key]);
+      formData.append(key, values[key] || '');
     });
 
-    // Submit to Netlify forms
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString()
-    })
-    .then(() => {
-      console.log("Form successfully submitted to Netlify");
-      toast({
-        title: "Tack för din ansökan!",
-        description: "Vi återkommer till dig inom kort.",
+    try {
+      // Submit to Netlify forms
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString()
       });
-      form.reset();
-    })
-    .catch((error) => {
+
+      if (response.ok) {
+        console.log("Form successfully submitted to Netlify");
+        toast({
+          title: "Tack för din ansökan!",
+          description: "Vi återkommer till dig inom kort.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
       console.error("Form submission error:", error);
       toast({
         title: "Ett fel uppstod",
         description: "Försök igen senare eller kontakta oss via telefon.",
         variant: "destructive"
       });
-    });
+    }
   };
 
   return (
@@ -81,11 +85,9 @@ const BliPartner = () => {
               netlify-honeypot="bot-field"
             >
               <input type="hidden" name="form-name" value="partner-form" />
-              <p className="hidden">
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
-              </p>
+              <div hidden>
+                <input name="bot-field" />
+              </div>
 
               <FormField
                 control={form.control}

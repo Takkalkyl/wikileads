@@ -15,13 +15,41 @@ const Kontakt = () => {
     },
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     console.log("Form submitted:", values);
-    toast({
-      title: "Tack för ditt meddelande!",
-      description: "Vi återkommer till dig inom kort.",
+    
+    // Encode form data for Netlify
+    const formData = new FormData();
+    Object.keys(values).forEach(key => {
+      formData.append(key, values[key]);
     });
-    form.reset();
+
+    try {
+      // Submit to Netlify forms
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString()
+      });
+
+      if (response.ok) {
+        console.log("Form successfully submitted to Netlify");
+        toast({
+          title: "Tack för ditt meddelande!",
+          description: "Vi återkommer till dig inom kort.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Ett fel uppstod",
+        description: "Försök igen senare eller kontakta oss via telefon.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
@@ -33,13 +61,16 @@ const Kontakt = () => {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-6"
-            data-netlify="true" // Add this attribute for Netlify
-            name="contact" // Ensure this matches the name used in Netlify
-            method="POST" // POST method for form submission
+            data-netlify="true"
+            name="contact"
+            method="POST"
+            netlify-honeypot="bot-field"
           >
-            {/* Hidden fields to tell Netlify this is a form submission */}
+            {/* Hidden fields for Netlify */}
             <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" /> {/* Honeypot field to prevent bots */}
+            <div hidden>
+              <input name="bot-field" />
+            </div>
 
             <div>
               <label className="text-white">Namn</label>

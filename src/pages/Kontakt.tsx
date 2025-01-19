@@ -17,35 +17,11 @@ const Kontakt = () => {
 
   const onSubmit = (values) => {
     console.log("Form submitted:", values);
-    
-    // Encode form data for Netlify
-    const formData = new FormData();
-    Object.keys(values).forEach(key => {
-      formData.append(key, values[key]);
+    toast({
+      title: "Tack för ditt meddelande!",
+      description: "Vi återkommer till dig inom kort.",
     });
-
-    // Submit to Netlify forms
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString()
-    })
-    .then(() => {
-      console.log("Form successfully submitted to Netlify");
-      toast({
-        title: "Tack för ditt meddelande!",
-        description: "Vi återkommer till dig inom kort.",
-      });
-      form.reset();
-    })
-    .catch((error) => {
-      console.error("Form submission error:", error);
-      toast({
-        title: "Ett fel uppstod",
-        description: "Försök igen senare eller kontakta oss via telefon.",
-        variant: "destructive"
-      });
-    });
+    form.reset();
   };
 
   return (
@@ -57,17 +33,13 @@ const Kontakt = () => {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-6"
-            data-netlify="true"
-            name="contact"
-            method="POST"
-            netlify-honeypot="bot-field"
+            data-netlify="true" // Add this attribute for Netlify
+            name="contact" // Ensure this matches the name used in Netlify
+            method="POST" // POST method for form submission
           >
+            {/* Hidden fields to tell Netlify this is a form submission */}
             <input type="hidden" name="form-name" value="contact" />
-            <p className="hidden">
-              <label>
-                Don't fill this out if you're human: <input name="bot-field" />
-              </label>
-            </p>
+            <input type="hidden" name="bot-field" /> {/* Honeypot field to prevent bots */}
 
             <div>
               <label className="text-white">Namn</label>

@@ -19,21 +19,22 @@ const Kontakt = () => {
     console.log("Form submitted:", values);
     
     try {
-      // Encode form data for Netlify
       const formData = new FormData();
+      formData.append("form-name", "contact");
       Object.keys(values).forEach(key => {
         formData.append(key, values[key]);
       });
 
-      // Submit to Netlify forms
       const response = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString()
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData as any).toString(),
       });
 
       if (response.ok) {
-        console.log("Form successfully submitted to Netlify");
+        console.log("Form successfully submitted");
         toast({
           title: "Tack för ditt meddelande!",
           description: "Vi återkommer till dig inom kort.",
@@ -47,7 +48,7 @@ const Kontakt = () => {
       toast({
         title: "Ett fel uppstod",
         description: "Försök igen senare eller kontakta oss via telefon.",
-        variant: "destructive"
+        variant: "destructive",
       });
     }
   };
@@ -61,12 +62,11 @@ const Kontakt = () => {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-6"
-            data-netlify="true"
             name="contact"
             method="POST"
+            data-netlify="true"
             netlify-honeypot="bot-field"
           >
-            {/* Hidden fields for Netlify */}
             <input type="hidden" name="form-name" value="contact" />
             <div hidden>
               <input name="bot-field" />

@@ -9,7 +9,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/295e7604-5b7e-4891-a5f4-6487948f64cb.png" 
             alt="WikiLeads" 
-            className="h-16 w-auto" // Ändrat från h-12 till h-16 för ännu större logga
+            className="h-12 w-auto" // Ändrat från h-8 till h-12 för större logga
           />
         </Link>
         <div className="hidden md:flex items-center space-x-8">

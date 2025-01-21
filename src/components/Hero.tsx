@@ -35,7 +35,7 @@ const Hero = () => {
           <img
             src="/lovable-uploads/b75ad58d-ebe1-4c14-93ed-399e18921818.png"
             alt="Bygglovsleads illustration"
-            className="relative rounded-2xl shadow-2xl w-full max-w-[720px]" // Increased size to match the navbar logo
+            className="relative rounded-2xl shadow-2xl w-full max-w-[240px]" // Changed from max-w-[720px] to max-w-[240px] (720 / 3 = 240)
           />
           <div className="absolute -bottom-10 -left-10 bg-forest-light p-6 rounded-xl shadow-xl border border-mint/10">
             <p className="text-mint text-4xl font-bold">1000+</p>

@@ -7,9 +7,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/b75ad58d-ebe1-4c14-93ed-399e18921818.png" 
+            src="/lovable-uploads/295e7604-5b7e-4891-a5f4-6487948f64cb.png" 
             alt="WikiLeads" 
-            className="h-24 w-auto" // Changed from h-72 to h-24 (72 / 3 = 24)
+            className="h-16 w-auto" // Ändrat från h-12 till h-16 för ännu större logga
           />
         </Link>
         <div className="hidden md:flex items-center space-x-8">

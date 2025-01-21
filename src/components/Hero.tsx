@@ -33,9 +33,9 @@ const Hero = () => {
         <div className="relative">
           <div className="absolute -inset-0.5 bg-mint/20 rounded-2xl blur opacity-30" />
           <img
-            src="/lovable-uploads/b75ad58d-ebe1-4c14-93ed-399e18921818.png"
+            src="/lovable-uploads/f5810f40-200f-447f-9a93-7034cbfe2d17.png"
             alt="Bygglovsleads illustration"
-            className="relative rounded-2xl shadow-2xl w-full max-w-[240px]" // Changed from max-w-[720px] to max-w-[240px] (720 / 3 = 240)
+            className="relative rounded-2xl shadow-2xl"
           />
           <div className="absolute -bottom-10 -left-10 bg-forest-light p-6 rounded-xl shadow-xl border border-mint/10">
             <p className="text-mint text-4xl font-bold">1000+</p>

@@ -33,7 +33,7 @@ const Hero = () => {
         <div className="relative">
           <div className="absolute -inset-0.5 bg-mint/20 rounded-2xl blur opacity-30" />
           <img
-            src="/lovable-uploads/f5810f40-200f-447f-9a93-7034cbfe2d17.png"
+            src="/lovable-uploads/b75ad58d-ebe1-4c14-93ed-399e18921818.png"
             alt="Bygglovsleads illustration"
             className="relative rounded-2xl shadow-2xl"
           />

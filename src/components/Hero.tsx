@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Building } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -7,10 +7,6 @@ const Hero = () => {
     <section className="pt-32 pb-20 px-4">
       <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
-          <div className="flex items-center gap-2 bg-mint/10 w-fit px-4 py-2 rounded-full border border-mint/20">
-            <Building className="w-4 h-4 text-mint" />
-            <span className="text-mint text-sm font-medium">Wikileads.se</span>
-          </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
             Få tillgång till verifierade bygglovsleads
           </h1>

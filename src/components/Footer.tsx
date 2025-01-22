@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Wikileads.se</h3>
+            <h3 className="text-2xl font-bold">WikiLeads</h3>
             <p className="text-white/60 max-w-xs">
               Vi kopplar samman företag med nya möjligheter direkt från bygglovsansökningar.
             </p>
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-mint/10 mt-16 pt-8 text-center text-white/60">
-          <p>© {new Date().getFullYear()} Wikileads.se. Alla rättigheter förbehållna.</p>
+          <p>© {new Date().getFullYear()} WikiLeads. Alla rättigheter förbehållna.</p>
           <p className="mt-2">
             <a href="mailto:info@wikileads.se" className="text-mint hover:text-mint/80">
               info@wikileads.se

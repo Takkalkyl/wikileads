@@ -9,7 +9,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/f758e72a-db02-43e8-aa17-a070431e7570.png" 
             alt="WikiLeads" 
-            className="h-32 w-auto"
+            className="h-16 w-auto"
           />
         </Link>
         <div className="hidden md:flex items-center space-x-8">

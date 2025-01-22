@@ -7,9 +7,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/758ecf82-4270-4f51-9187-32604b112e91.png" 
+            src="/lovable-uploads/f758e72a-db02-43e8-aa17-a070431e7570.png" 
             alt="WikiLeads" 
-            className="h-16 w-auto"
+            className="h-32 w-auto"
           />
         </Link>
         <div className="hidden md:flex items-center space-x-8">
